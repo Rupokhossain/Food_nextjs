@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect } from "react"; 
 import Link from "next/link";
-import { FaGoogle, FaGithub, FaEye, FaEyeSlash } from "react-icons/fa6";
-import { FcGoogle } from "react-icons/fc";
+import { FaGithub, FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa6";
 import Image from "next/image";
 import pizzaImage from "../../../public/assets/images/about.png"; 
 import { signIn, useSession } from "next-auth/react"; // useSession যোগ করা হয়েছে
@@ -62,7 +61,7 @@ export default function LoginPage() {
     }
   };
 
-  // === লজিক ২: সেশন চেক করার সময় লোডিং দেখানো ===
+
   if (status === "loading") {
     return (
       <div className="flex min-h-screen items-center justify-center bg-gray-50">
@@ -71,7 +70,7 @@ export default function LoginPage() {
     );
   }
 
-  // === মেইন লগিন ফর্ম (যদি ইউজার লগিন না থাকে) ===
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -81,10 +80,8 @@ export default function LoginPage() {
     >
       <Toaster position="top-center" reverseOrder={false} />
 
-      {/* ⚠️ আগে এখানে Link ট্যাগ ছিল, সেটা সরিয়ে দিয়েছি কারণ ফর্মের ক্ষতি করছিল */}
       <div className="flex w-full max-w-6xl shadow-2xl rounded-2xl overflow-hidden bg-white mx-4 relative">
         
-        {/* হোম পেজে ফেরার জন্য ছোট ক্রস বাটন (অপশনাল) */}
         <Link href="/" className="absolute top-4 right-4 text-gray-400 hover:text-red-500 z-50 lg:hidden">
             ✕
         </Link>
@@ -138,7 +135,7 @@ export default function LoginPage() {
                 onClick={() => signIn("google")}
                 className="flex items-center justify-center cursor-pointer gap-2 border border-gray-200 py-3 rounded-lg hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 transform active:scale-95"
               >
-                <FcGoogle className="text-2xl" />
+                <FaGoogle className="text-2xl" />
                 <span className="font-semibold text-gray-700">Google</span>
               </button>
               <button
